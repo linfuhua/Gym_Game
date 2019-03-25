@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>体育馆赛事管理模块-赛事修改</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button  class="navbar-toggle" data-toggle="collapse" data-target="#myList">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand"><span><img src="image/login.PNG"/></span> 广东海洋大学体育馆管理系统</a>
+        </div>
+        <div id="myList" class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a href="Home.html"><img src="image/game.png"> 赛事模块</a></li>
+                <li><a href="javascript:void(0)"><span><img src="image/place.png"></span> 场地模块</a></li>
+                <li><a href="javascript:void(0)"><span><img src="image/qicai.png"></span> 器材模块</a></li>
+                <li><a href="javascript:void(0)"><img src="image/user.png"> 用户模块</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="navbar_bottom">
+        <ul class="pull-right">
+            <li id="time">2018-06-17 21:46</li>
+            <li>用户: <a href="javascript:void(0)">XXX</a></li>
+            <li><a href="javascript:void(0)">退出系统</a></li>
+        </ul>
+    </div>
+</nav>
+</body>
+<script src="jquery/jquery-1.10.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script>
+    //    导航条特效
+    $("#myList ul li").on('mouseover',function () {
+        $(this).addClass('animate');
+    });
+    $("#myList ul li").on('mouseout',function () {
+        $(this).removeClass('animate');
+    });
+//    $("#myList ul li").on('click',function () {
+//        $(this).on('mouseout',function () {
+//            $(this).addClass('animate');
+//        });
+//        $(this).addClass('animate');
+//    })
+
+    //    var time = new Date();
+    //    alert(time.toLocaleFormat("%Y-%m-%d %H:%M:%S"));
+    function changeTime() {
+        Date.prototype.Format = function (fmt) { //author: meizz
+            var o = {
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "H+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds(), //秒
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+        var time = new Date().Format("yyyy-MM-dd HH:mm:ss");
+//alert(time)
+        $("#time").text(time);
+    }
+    $(function () {
+        changeTime();
+    })
+    setInterval(changeTime,1000)
+</script>
+</html>

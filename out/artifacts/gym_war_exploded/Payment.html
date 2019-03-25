@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>体育馆赛事管理模块-赛事支付</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button  class="navbar-toggle" data-toggle="collapse" data-target="#myList">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand"><span><img src="image/login.PNG"/></span> 广东海洋大学体育馆管理系统</a>
+        </div>
+        <div id="myList" class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a href="Home.html"><img src="image/game.png"> 赛事模块</a></li>
+                <li><a href="javascript:void(0)"><span><img src="image/place.png"></span> 场地模块</a></li>
+                <li><a href="javascript:void(0)"><span><img src="image/qicai.png"></span> 器材模块</a></li>
+                <li><a href="javascript:void(0)"><img src="image/user.png"> 用户模块</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="navbar_bottom">
+        <ul class="pull-right">
+            <li id="time">2018-06-17 21:46</li>
+            <li>用户: <a href="javascript:void(0)">XXX</a></li>
+            <li><a href="javascript:void(0)">退出系统</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container content3" id="pay_manage">
+    <div class="col-lg-2">
+        <div>
+            <ul class="nav" id="setting">
+                <li>
+                    <div>
+                        <span class="glyphicon glyphicon-list-alt"></span>
+                        <strong>订单管理</strong> <span class="icon_down"><small>
+                    <span class="glyphicon glyphicon-chevron-down"></span></small>
+                    </span></div>
+                    <ul class="fadechange" id="payment">
+                        <li class="default"><a href="#a" class="dropdown-toggle" data-toggle="tab">
+                            全部订单</a></li>
+                        <li id="no_pay"><a href="#b" class="dropdown-toggle" data-toggle="tab">未付款</a></li>
+                        <li id=""><a href="#c" class="dropdown-toggle" data-toggle="tab">已付款</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <span class="glyphicon glyphicon-edit"></span>
+                        <strong>修改订单</strong> <span class="icon_down"><small>
+                    <span class="glyphicon glyphicon-chevron-down"></span></small>
+                    </span></div>
+                    <ul class="fadechange">
+                        <li id="modify"><a href="#d" class="dropdown-toggle" data-toggle="tab">修改订单</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <img src="image/jubao.png" />
+                        <strong>举报 | | 投诉</strong> <div class="icon_down"><small>
+                        <div class="glyphicon glyphicon-chevron-down"></div></small>
+                    </div></div>
+                    <ul class="fadechange">
+                        <li><a href="#e" class="dropdown-toggle" data-toggle="tab">举报管理</a></li>
+                        <li><a href="#f" class="dropdown-toggle" data-toggle="tab">投诉管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-10">
+        <ul class="nav tab-content">
+            <li id="a" class="tab-pane active fade in">
+                <form>
+                    <div class="table-responsive pay_list">
+                        <span style="font-size: 18px;font-weight: bolder !important;margin-bottom: 5px">全部订单</span>
+                        <table class="table table-bordered table-hover" style="margin:0" id="pay_list_table">
+                            <tr class="bg-primary">
+                                <th><input type="checkbox"/></th>
+                                <th>订单号</th>
+                                <th>订单者姓名</th>
+                                <th>下单时间</th>
+                                <th>赛事项目</th>
+                                <th>赛事场地</th>
+                                <th>赛事时间</th>
+                                <th>订单金额</th>
+                                <th>订单状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </table>
+                        <div>
+                            <button id="paybtn" type="button" class="btn btn-info btn-sm pull-right" data-toggle="modal" data-target="#PaySure">去支付</button>
+                        </div>
+                    </div>
+                </form>
+            <li id="b" class="tab-pane fade">aaaaaaaa</li>
+            <li id="c" class="tab-pane fade">cccccccc</li>
+            <li id="d" class="tab-pane fade">dddddddd</li>
+            <li id="e" class="tab-pane fade">deeeeeeeee</li>
+            <li id="f" class="tab-pane fade">fffffffff</li>
+        </ul>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" data-backdrop="static" id="PaySure">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">确认订单信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">订单者姓名：<span>张三</span></div>
+                    <div class="col-md-6">赛事项目：<span>篮球</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">赛事场地：<span>篮球场1号场	</span></div>
+                    <div class="col-md-6">赛事时间：<span>2018-06-23 10:30-11:30</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">订单金额：<span>100</span></div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info pull-left" id="modifyOrder" data-dismiss="modal">修改订单</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">确认支付</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</body>
+<script src="jquery/jquery-1.10.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script>
+
+
+//    导航条特效
+    $("#myList ul li").on('mouseover',function () {
+        $(this).addClass('animate');
+    });
+    $("#myList ul li").on('mouseout',function () {
+        $(this).removeClass('animate');
+    });
+//    $("#myList ul li").on('click',function () {
+//        $(this).on('mouseout',function () {
+//            $(this).addClass('animate');
+//        });
+//        $(this).addClass('animate');
+//    })
+
+//    系统时间
+    function changeTime() {
+        Date.prototype.Format = function (fmt) { //author: meizz
+            var o = {
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "H+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds(), //秒
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+        var time = new Date().Format("yyyy-MM-dd HH:mm:ss");
+//alert(time)
+        $("#time").text(time);
+    }
+    $(function () {
+        changeTime();
+    })
+    setInterval(changeTime,1000);
+
+    //    订单管理
+    $('#setting>li>div').on('click',function () {
+        $(this).siblings().slideToggle();
+    })
+
+    $(".fadechange li.default").css('background-color','#337ab7').css('color','white');
+    $(".fadechange li.default").children('a').css('color','white');
+    $(".fadechange li").on('click',function () {
+        $(".fadechange li").css('background-color','white').css('color','inherit');
+        $(".fadechange li").children('a').css('color','gray');
+        $(".fadechange li").children('a').children('span').css('color','gray');
+        $(this).css('background-color','#337ab7').css('color','white');
+        $(this).children('a').css('color','white');
+        $(this).children('a').children('span').css('color','white');
+        $(".pay_list>span").text($(this).text());
+    })
+
+    //    实现全选
+    $("#pay_list_table tr th input").on('click',function () {
+        if($(this).prop('checked')){
+            $("#pay_list_table tr td input").prop('checked',true);
+        }else{
+            $("#pay_list_table tr td input").each(function () {
+                if($(this).prop('disabled')){
+                    return;
+                }else{
+                    $(this).prop('checked',false);
+                }
+            })
+        }
+    })
+    $("#pay_list_table tr td input").each(function () {
+
+    })
+    $("#pay_list_table tr td input").click(function () {
+        $("#pay_list_table tr th input").prop('checked',false)
+    })
+
+    //    赛选已支付订单
+    $("#pay_list_table tr:not(tr:first-child)").each(function () {
+        if($(this).children("td:nth-of-type(9)").text() == "已支付"){
+            $(this).children("td:nth-of-type(1)").children("input").prop({'disabled':true,'checked':true})
+        }
+    })
+
+    //    判断支付状态改变字体颜色
+    $("#pay_list_table tr td:nth-of-type(9)").each(function () {
+        if($(this).text() == "未支付"){
+            $(this).css('color','gray');
+        }else{
+            $(this).css('color','rgb(91, 192, 222)');
+        }
+    })
+
+
+    //    修改订单
+    $("#modifyOrder").click(function () {
+        $(".fadechange li").css('background-color','white').css('color','inherit');
+        $("#modify").css('background-color','#337ab7').css('color','white');
+    })
+
+//查询全部订单start
+var orderlist = $("#pay_list_table");
+$.ajax({
+    type:"post",
+    url:"orderAll.action",
+    // data:{//设置数据源
+    // },
+    dataType:"text",
+    async:false,
+    success:function(data){
+        var list1 = eval("("+data+")");//将数据转换成json类型，可以把data用alert()输出出来看看到底是什么样的结构
+        //得到的d是一个形如{"key":"value","key1":"value1"}的数据类型，然后取值出来
+        // $("#s_name").text(""+d.name+"");
+        var obj = list1.objs;
+        //alert(obj);
+        var content=null;
+        for(var i = 0 ; i < obj.length; i++){
+            content += "<tr><td><input type='checkbox'/></td><td>"+obj[i].orderID+"</td><td>"+obj[i].orderUer+"</td><td>"+obj[i].orderTime+"</td><td>"+obj[i].gameItem+"</td><td>"+obj[i].gamePlace+"</td><td>"+obj[i].gameDay+"&nbsp;"+obj[i].gameTime+"</td><td>"+obj[i].orderCost+"</td><td>"+obj[i].orderstatus+"</td><td><a class='delete'>删除</a></a></td></tr>"
+        }
+        orderlist.append(content);
+        // alert(content);
+
+    },
+    error:function(){
+        alert("系统异常，请稍后重试！");
+    }//这里不要加","
+});
+
+//查询全部订单end
+
+//查询未审核订单start
+$("#payment li:not(:first-child)").on('click',function () {
+    var status = $(this).text();
+    $.ajax({
+        type:"get",
+        url:"findOrderByStatus.action",//需要用来处理ajax请求的action,excuteAjax为处理的方法名，JsonAction为action名
+        data:{//设置数据源
+            orderstatus:status
+        },
+        dataType:"text",//设置需要返回的数据类型
+        async:false,
+        success:function(data){
+            //alert(data);
+
+            var datalist = eval("("+data+")");//将数据转换成json类型，可以把data用alert()输出出来看看到底是什么样的结构
+            //得到的d是一个形如{"key":"value","key1":"value1"}的数据类型，然后取值出来
+            // $("#s_name").text(""+d.name+"");
+            alert(datalist.msg);
+            // window.open('showinfopage','_self');
+          //  window.refresh='Payment.html';
+        },
+        error:function(){
+            alert("系统异常，请稍后重试！");
+        }//这里不要加","
+    });
+
+})
+//查询未审核订单end
+
+//    删除订单start
+$(".delete").on('click',function () {
+    var isCheck = $(this).parent().parent().children().eq(0);
+    if(isCheck.children().prop('checked') == true){
+        var id = parseInt($(this).parent().parent().children().eq(1).text());
+
+        $.ajax({
+            type:"get",
+            url:"deleteOrder.action",//需要用来处理ajax请求的action,excuteAjax为处理的方法名，JsonAction为action名
+            data:{//设置数据源
+                orderID:id
+            },
+            dataType:"text",//设置需要返回的数据类型
+            async:false,
+            success:function(data){
+                //alert(data);
+                var datalist = eval("("+data+")");//将数据转换成json类型，可以把data用alert()输出出来看看到底是什么样的结构
+                //得到的d是一个形如{"key":"value","key1":"value1"}的数据类型，然后取值出来
+                // $("#s_name").text(""+d.name+"");
+                alert(datalist.msg);
+                // window.open('showinfopage','_self');
+                window.refresh='Payment.html';
+            },
+            error:function(){
+                alert("系统异常，请稍后重试！");
+            }//这里不要加","
+        });
+    }else{
+        alert("请勾选要删除的订单")
+    }
+});
+
+//    删除订单end
+
+</script>
+</html>

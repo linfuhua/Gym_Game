@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>体育馆赛事管理模块-赛事预约</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button  class="navbar-toggle" data-toggle="collapse" data-target="#myList">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand"><span><img src="image/login.PNG"/>
+            </span> <span class="hidden-xs">广东海洋大学体育馆管理系统</span></a>
+        </div>
+        <div id="myList" class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a href="Home.html"><img src="image/game.png"> 赛事模块</a></li>
+                <li><a href="javascript:void(0)"><span><img src="image/place.png"></span> 场地模块</a></li>
+                <li><a href="javascript:void(0)"><span><img src="image/qicai.png"></span> 器材模块</a></li>
+                <li><a href="javascript:void(0)"><img src="image/user.png"> 用户模块</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="navbar_bottom">
+        <ul class="pull-right">
+            <li id="time">2018-06-17 21:46</li>
+            <li>用户: <a href="javascript:void(0)">XXX</a></li>
+            <li><a href="javascript:void(0)">退出系统</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container content1" >
+    <div class="row">
+        <div class="col-lg-2" id="content_left">
+            <ul class="list-group">
+                <li class="list-group-item active"><span class="glyphicon glyphicon-th"></span> 赛事项目</li>
+                <li class="list-group-item" style="background: #ededef" name="0"><img src="image/羽毛球.png">&nbsp;&nbsp;羽毛球</li>
+                <li class="list-group-item" name="1"><img src="image/pingpong.png">&nbsp;&nbsp;乒乓球</li>
+                <li class="list-group-item" name="2"><img src="image/basketball1.png">&nbsp;&nbsp;篮球</li>
+                <li class="list-group-item" name="3"><img src="image/排球.png">&nbsp;&nbsp;排球</li>
+                <li class="list-group-item" name="4"><img src="image/台球.png">&nbsp;&nbsp;台球</li>
+            </ul>
+            <div id="corner"><span class="glyphicon glyphicon-triangle-left"></span></div>
+        </div>
+        <div class="col-lg-10"  id="content_right">
+            <div>
+                选择日期 <input type="date" style="margin-bottom: 10px;"/>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="place_status">
+                        <tr>
+                            <th>场地\时间段</th>
+                            <th>8:30-9:30</th>
+                            <th>9:30-10:30</th>
+                            <th>10:30-11:30</th>
+                            <th>14:30-15:30</th>
+                            <th>15:30-16:30</th>
+                            <th>16:30-17:30</th>
+                            <th>17:30-18:30</th>
+                            <th>18:30-19:30</th>
+                            <th>19:30-20:30</th>
+                        </tr>
+                        <tr>
+                            <td>羽毛球场1号场</td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                        </tr>
+                        <tr>
+                            <td>羽毛球场2号场</td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                        </tr>
+                        <tr>
+                            <td>羽毛球场3号场</td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                        </tr>
+                        <tr>
+                            <td>羽毛球场4号场</td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                            <td><span></span></td>
+                        </tr>
+                    </table>
+                </div>
+                <ul class="nav nav-pills" id="content_right_ul">
+                    <li style="background: #fdb75d"></li><li>已预约</li>
+                    <li style="background: #35bbfb"></li><li>可预约</li>
+                    <li style="background: #ccc"></li><li>已被预约</li>
+                    <li class="pull-right" id="reservation_game"><span>预约赛事</span></li>
+                </ul>
+            </div>
+            <div id="reservation">
+                <span class="header">赛事预约申请 <span class="glyphicon glyphicon-pencil"></span></span>
+                <form  class="form-inline" id="reservation_form">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" style="margin:0" id="reverse_table">
+                            <tr>
+                                <th colspan="3"><img src="image/warning.png" />
+                                    <span style="opacity: 0.7">请填写全部正确真实的信息</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td><div class="form-group">赛事申请编号：
+                                    <input type="text" class="form-control" style="border:none"
+                                    readonly/></div>
+                                </td>
+                                <td id="appliance"><div class="form-group">申请人：&nbsp;&nbsp;&nbsp;
+                                    <input type="text" class="form-control"/></div>
+                                </td>
+                                <td>申请单位：<input type="text" class="form-control" id="apply_util"/></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><div class="form-group">联系电话：
+                                    <input type="text" class="form-control" id="phone"/></div>
+                                </td>
+                                <td><div class="form-group">赛事项目：
+                                    <select style="" class="form-control" id="game_item">
+                                        <option value="0">羽毛球</option>
+                                        <option value="1">乒乓球</option>
+                                        <option value="2">篮球</option>
+                                        <option value="3">排球</option>
+                                        <option value="4">台球</option>
+                                    </select></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><div class="form-group">赛事时间：
+                                    <input type="date" class="form-control" id="game_day"/>
+                                    <select style="" class="form-control" id="game_time">
+                                        <option>8:30-9:30</option>
+                                        <option>9:30-10:30</option>
+                                        <option>10:30-11:30</option>
+                                        <option>14:30-15:30</option>
+                                        <option>15:30-16:30</option>
+                                        <option>16:30-17:30</option>
+                                        <option>17:30-18:30</option>
+                                        <option>18:30-19:30</option>
+                                        <option>19:30-20:30</option>
+                                    </select></div>
+                                </td>
+                                <td>
+                                    <div class="form-group">赛事场地：
+                                    <select style="" class="form-control" id="game_place">
+                                        <option>羽毛球场1号场</option>
+                                        <option>羽毛球场2号场</option>
+                                        <option>羽毛球场3号场</option>
+                                        <option>羽毛球场4号场</option>
+                                    </select></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <div class="form-group">比赛双方：
+                                        <input type="text" class="form-control" placeholder="xx : xx格式" id="opponent"/></div>
+                                </td>
+                                <td>
+                                    <div class="form-group">备注信息：
+                                        <textarea maxlength="25"  class="form-control" id="note" placeholder="可不填"></textarea></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button class="btn btn-info btn-sm pull-right" id="reserver">提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="jquery/jquery-1.10.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script>
+    //    导航条特效
+    $("#myList ul li").on('mouseover',function () {
+        $(this).addClass('animate');
+    });
+    $("#myList ul li").on('mouseout',function () {
+        $(this).removeClass('animate');
+    });
+//    $("#myList ul li").on('click',function () {
+//        $(this).on('mouseout',function () {
+//            $(this).addClass('animate');
+//        });
+//        $(this).addClass('animate');
+//    })
+
+    //    var time = new Date();
+    //    alert(time.toLocaleFormat("%Y-%m-%d %H:%M:%S"));
+    function changeTime() {
+        Date.prototype.Format = function (fmt) { //author: meizz
+            var o = {
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "H+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds(), //秒
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+        var time = new Date().Format("yyyy-MM-dd HH:mm:ss");
+//alert(time)
+        $("#time").text(time);
+    }
+    $(function () {
+        changeTime();
+    })
+    setInterval(changeTime,1000);
+
+    $("#content_left ul li").on('click',function () {
+        if($(this).index() == 0){
+            return;
+        }else{
+        var top = 52+($(this).index()-1)*42;
+            $("#content_left ul li:not(:first-child)").css('background',"white");
+       $("#corner").css('top',top+"px");
+            $(this).css('background',"#ededef");
+        }
+    })
+
+    $("#reservation_form").css('display','none')
+    $("#reservation_game").click(function () {
+        $("#reservation_form").slideToggle();
+//        $("#appliance input").focus();
+    })
+
+
+
+
+    //赛事项目的联动切换start
+    $("#content_left ul li:not('.active')").on('click',function () {
+        switch ($(this).attr('name')){
+            case '0':
+                $("#place_status tr:nth-of-type(2) td:first-child").text("羽毛球场1号场");
+                $("#place_status tr:nth-of-type(3) td:first-child").text("羽毛球场2号场");
+                $("#place_status tr:nth-of-type(4) td:first-child").text("羽毛球场3号场");
+                $("#place_status tr:nth-of-type(5) td:first-child").text("羽毛球场4号场");
+                break;
+            case '1':
+                $("#place_status tr:nth-of-type(2) td:first-child").text("乒乓球场1号场");
+                $("#place_status tr:nth-of-type(3) td:first-child").text("乒乓球场2号场");
+                $("#place_status tr:nth-of-type(4) td:first-child").text("乒乓球场3号场");
+                $("#place_status tr:nth-of-type(5) td:first-child").text("乒乓球场4号场");
+                break;
+            case '2':
+                $("#place_status tr:nth-of-type(2) td:first-child").text("篮球场1号场");
+                $("#place_status tr:nth-of-type(3) td:first-child").text("篮球场2号场");
+                $("#place_status tr:nth-of-type(4) td:first-child").text("篮球场3号场");
+                $("#place_status tr:nth-of-type(5) td:first-child").text("篮球场4号场");
+                break;
+            case '3':
+                $("#place_status tr:nth-of-type(2) td:first-child").text("排球场1号场");
+                $("#place_status tr:nth-of-type(3) td:first-child").text("排球场2号场");
+                $("#place_status tr:nth-of-type(4) td:first-child").text("排球场3号场");
+                $("#place_status tr:nth-of-type(5) td:first-child").text("排球场4号场");
+                break;
+            case '4':
+                $("#place_status tr:nth-of-type(2) td:first-child").text("台球场1号场");
+                $("#place_status tr:nth-of-type(3) td:first-child").text("台球场2号场");
+                $("#place_status tr:nth-of-type(4) td:first-child").text("台球场3号场");
+                $("#place_status tr:nth-of-type(5) td:first-child").text("台球场4号场");
+                break;
+        }
+    })
+
+
+    $("#game_item").on('change',function () {
+        switch (parseInt($(this).children('option:selected').val())) {
+            case 0:
+                var options = "<option>羽毛球场1号场</option><option>羽毛球场2号场</option>" +
+                    "<option>羽毛球场3号场</option><option>羽毛球场4号场</option>";
+                $("#game_place").html(options);
+                break;
+            case 1:
+                var options = "<option>乒乓球场1号场</option><option>乒乓球场2号场</option>" +
+                    "<option>乒乓球场3号场</option><option>乒乓球场4号场</option>";
+                $("#game_place").html(options);
+                break;
+            case 2:
+                var options = "<option>篮球场1号场</option><option>篮球场2号场</option>" +
+                    "<option>篮球场3号场</option><option>篮球场4号场</option>";
+                $("#game_place").html(options);
+                break;
+            case 3:
+                var options = "<option>排球场1号场</option><option>排球场2号场</option>" +
+                    "<option>排球场3号场</option><option>排球场4号场</option>";
+                $("#game_place").html(options);
+                break;
+            case 4:
+                var options = "<option>台球场1号场</option><option>台球场2号场</option>" +
+                    "<option>台球场3号场</option><option>台球场4号场</option>";
+                $("#game_place").html(options);
+                break;
+        }
+    })
+    //赛事项目的联动切换end
+
+
+    //赛事预定
+    $("#reserver").on('click',function () {
+        var isBlank = false;
+        $("#reverse_table tr td input:not([readonly])").each(function () {
+            if(!$(this).val()){
+                isBlank = true;
+            };
+        });
+        if(isBlank){
+            alert("请填入完整的信息");
+            return false;
+        }else{
+            $.ajax({
+                type: "post",
+                url: "reserverGame.action",
+                async: false,
+                data: {
+                    applicant: $("#appliance div>input").val(),
+                    applyUnit: $("#apply_util").val(),
+                    opponent: $("#opponent").val(),
+                    gameDay: $("#game_day").val().toString(),
+                    gameTime: $("#game_time option:selected").text(),
+                    gameItem: $("#game_item option:selected").text(),
+                    gamePlace: $("#game_place option:selected").text(),
+                    note: $("#note").val(),
+                    phone: $("#phone").val(),
+                    makeStatus: "未审核",
+                    reviseStatus: "未审核"
+                },
+                dataType: "text",//设置需要返回的数据类型
+                success: function (data) {
+                    var datalist = eval("(" + data + ")");
+                    alert(datalist.msg);
+                },
+                error: function () {
+                    alert("系统异常，请稍后重试！");
+                    // alert($("#appliance div>input").val())
+                }//这里不要加","
+            });
+        }
+    })
+</script>
+</html>

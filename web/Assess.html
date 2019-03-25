@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>体育馆赛事管理模块-赛事审核</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button  class="navbar-toggle" data-toggle="collapse" data-target="#myList">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand"><span><img src="image/login.PNG"/>
+            </span> <span class="hidden-sm hidden-xs">广东海洋大学体育馆管理系统</span></a>
+        </div>
+        <div id="myList" class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a href="Home.html"><img src="image/game.png"> 赛事管理</a></li>
+                <li><a href="javascript:void(0)"><span><img src="image/place.png"></span> 场地管理</a></li>
+                <li><a href="javascript:void(0)"><span><img src="image/qicai.png"></span> 器材管理</a></li>
+                <li><a href="javascript:void(0)"><img src="image/user.png"> 用户管理</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="navbar_bottom">
+        <ul class="pull-right">
+            <li id="time">2018-06-17 21:46</li>
+            <li>用户: <a href="javascript:void(0)">XXX</a></li>
+            <li><a href="javascript:void(0)">退出系统</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container content3">
+    <div class="col-lg-2">
+        <div style="height:auto">
+            <div id="manage_header"><span class="glyphicon glyphicon-cog"></span> 赛事后台管理</div>
+            <ul class="nav nav-tabs" id="setting">
+                <li>
+                    <div>
+                        <img src="image/assess.png" />
+                        <strong>赛事申请审核</strong> <span class="icon_down"><small>
+                    <span class="glyphicon glyphicon-chevron-down"></span></small>
+                    </span></div>
+                    <ul class="fadechange" id="isAssess">
+                        <li class="active default"><a href="javascript:void(0)">未审核</a></li>
+                        <li><a href="javascript:void(0)">已审核</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <img src="image/make.png" />
+                        <strong>赛事生成</strong> <span class="icon_down"><small>
+                    <span class="glyphicon glyphicon-chevron-down"></span></small>
+                    </span></div>
+                    <ul class="fadechange" id="make">
+                        <li ><a href="#" class="dropdown-toggle" data-toggle="tab">
+                            新建赛事 <span class="glyphicon glyphicon-plus"></span></a></li>
+                        <li ><a href="#" class="dropdown-toggle" data-toggle="tab">
+                            删除赛事 <span class="glyphicon glyphicon-minus"></span></a></li>
+                        <li ><a href="#" class="dropdown-toggle" data-toggle="tab">
+                            修改赛事 <span class="glyphicon glyphicon-pencil"></span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div>
+                        <img src="image/tuikuan.png" />
+                        <strong>退款处理</strong> <div class="icon_down"><small>
+                        <div class="glyphicon glyphicon-chevron-down"></div></small>
+                    </div></div>
+                    <ul class="fadechange">
+                        <li><a href="#f" class="dropdown-toggle" data-toggle="tab">未批准</a></li>
+                        <li><a href="#g" class="dropdown-toggle" data-toggle="tab">已批准</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-10">
+        <!--<ul class="tab-content">-->
+            <!--<li id="a" class="tab-pane active fade in">-->
+                <form>
+                    <div class="table-responsive pay_list">
+                        <span style="font-size: 18px;font-weight: bolder !important;margin-bottom: 5px">赛事申请审核--未审核</span>
+                        <table class="table table-bordered table-hover" style="margin:0" id="pay_list_table">
+                            <tr class="bg-primary">
+                                <!--<th><input type="checkbox"/></th>-->
+                                <th>申请表编号</th>
+                                <th>申请人</th>
+                                <th>申请时间</th>
+                                <th>赛事项目</th>
+                                <th>赛事场地</th>
+                                <th>赛事时间</th>
+                                <th>预约金额</th>
+                                <th>审核状态</th>
+                                <th>操作</th>
+                            </tr>
+                            <!--<tr>-->
+                                <!--&lt;!&ndash;<td><input type="checkbox"/></td>&ndash;&gt;-->
+                                <!--<td>0001</td>-->
+                                <!--<td>张三</td>-->
+                                <!--<td>2018-06-21 18:50</td>-->
+                                <!--<td>篮球</td>-->
+                                <!--<td>篮球场1号场</td>-->
+                                <!--<td>2018-06-23 10:30-11:30</td>-->
+                                <!--<td>100</td>-->
+                                <!--<td>未审核</td>-->
+                                <!--<td><a href="javascript:void(0)">审核</a></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--&lt;!&ndash;<td><input type="checkbox"/></td>&ndash;&gt;-->
+                                <!--<td>0002</td>-->
+                                <!--<td>张三</td>-->
+                                <!--<td>2018-06-21 18:50</td>-->
+                                <!--<td>篮球</td>-->
+                                <!--<td>篮球场1号场</td>-->
+                                <!--<td>2018-06-23 10:30-11:30</td>-->
+                                <!--<td>100</td>-->
+                                <!--<td>未审核</td>-->
+                                <!--<td><a href="javascript:void(0)">审核</a></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--&lt;!&ndash;<td><input type="checkbox"/></td>&ndash;&gt;-->
+                                <!--<td>0003</td>-->
+                                <!--<td>张三</td>-->
+                                <!--<td>2018-06-21 18:50</td>-->
+                                <!--<td>篮球</td>-->
+                                <!--<td>篮球场1号场</td>-->
+                                <!--<td>2018-06-23 10:30-11:30</td>-->
+                                <!--<td>100</td>-->
+                                <!--<td>未审核</td>-->
+                                <!--<td><a href="javascript:void(0)">审核</a></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--&lt;!&ndash;<td><input type="checkbox"/></td>&ndash;&gt;-->
+                                <!--<td>0004</td>-->
+                                <!--<td>张三</td>-->
+                                <!--<td>2018-06-21 18:50</td>-->
+                                <!--<td>篮球</td>-->
+                                <!--<td>篮球场1号场</td>-->
+                                <!--<td>2018-06-23 10:30-11:30</td>-->
+                                <!--<td>100</td>-->
+                                <!--<td>未支付</td>-->
+                                <!--<td><a href="javascript:void(0)">审核</a></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--&lt;!&ndash;<td><input type="checkbox"/></td>&ndash;&gt;-->
+                                <!--<td>0005</td>-->
+                                <!--<td>张三</td>-->
+                                <!--<td>2018-06-21 18:50</td>-->
+                                <!--<td>篮球</td>-->
+                                <!--<td>篮球场1号场</td>-->
+                                <!--<td>2018-06-23 10:30-11:30</td>-->
+                                <!--<td>100</td>-->
+                                <!--<td>未审核</td>-->
+                                <!--<td><a href="javascript:void(0)">审核</a></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--&lt;!&ndash;<td><input type="checkbox"/></td>&ndash;&gt;-->
+                                <!--<td>0003</td>-->
+                                <!--<td>张三</td>-->
+                                <!--<td>2018-06-21 18:50</td>-->
+                                <!--<td>篮球</td>-->
+                                <!--<td>篮球场1号场</td>-->
+                                <!--<td>2018-06-23 10:30-11:30</td>-->
+                                <!--<td>100</td>-->
+                                <!--<td>未审核</td>-->
+                                <!--<td><a href="javascript:void(0)">审核</a></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--&lt;!&ndash;<td><input type="checkbox"/></td>&ndash;&gt;-->
+                                <!--<td>0004</td>-->
+                                <!--<td>张三</td>-->
+                                <!--<td>2018-06-21 18:50</td>-->
+                                <!--<td>篮球</td>-->
+                                <!--<td>篮球场1号场</td>-->
+                                <!--<td>2018-06-23 10:30-11:30</td>-->
+                                <!--<td>100</td>-->
+                                <!--<td>未审核</td>-->
+                                <!--<td><a href="javascript:void(0)">审核</a></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--&lt;!&ndash;<td><input type="checkbox"/></td>&ndash;&gt;-->
+                                <!--<td>0005</td>-->
+                                <!--<td>张三</td>-->
+                                <!--<td>2018-06-21 18:50</td>-->
+                                <!--<td>篮球</td>-->
+                                <!--<td>篮球场1号场</td>-->
+                                <!--<td>2018-06-23 10:30-11:30</td>-->
+                                <!--<td>100</td>-->
+                                <!--<td>未审核</td>-->
+                                <!--<td><a href="javascript:void(0)">审核</a></td>-->
+                            <!--</tr>-->
+                        </table>
+                        <!--<div>-->
+                            <!--<button id="paybtn" type="button" class="btn btn-info btn-sm pull-right" data-toggle="modal" data-target="#PaySure">去支付</button>-->
+                        <!--</div>-->
+                        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" data-backdrop="static" id="PaySure">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="gridSystemModalLabel">赛事申请审核</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                         <textarea placeholder="审核不通过原因" class="form-control" style="resize: none;"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                        <button type="button" class="btn btn-primary" id="assess_true" onclick="assessTrue()">审核通过</button>
+                                        <button type="button" class="btn btn-primary">审核不通过</button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                    </div>
+                </form>
+            <!--</li>-->
+            <!--<li id="b" class="tab-pane fade">-->
+                <!--<form>-->
+                    <!--<div class="table-responsive pay_list">-->
+                        <!--<span style="font-size: 18px;font-weight: bolder !important;margin-bottom: 5px">已审核</span>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</li>-->
+            <!--<li id="c" class="tab-pane fade">-->
+                <!--<form>-->
+                    <!--<div class="table-responsive pay_list">-->
+                        <!--<span style="font-size: 18px;font-weight: bolder !important;margin-bottom: 5px">赛事申请审核&#45;&#45;未审核</span>-->
+                        <!--<table class="table table-bordered table-hover" style="margin:0" id="assess_list" >-->
+                            <!--<tr class="bg-primary">-->
+                                <!--&lt;!&ndash;<th><input type="checkbox"/></th>&ndash;&gt;-->
+                                <!--<th>申请表编号</th>-->
+                                <!--<th>申请人</th>-->
+                                <!--<th>申请时间</th>-->
+                                <!--<th>赛事项目</th>-->
+                                <!--<th>赛事场地</th>-->
+                                <!--<th>赛事时间</th>-->
+                                <!--<th>预约金额</th>-->
+                                <!--<th>审核状态</th>-->
+                                <!--<th>操作</th>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--&lt;!&ndash;<td><input type="checkbox"/></td>&ndash;&gt;-->
+                                <!--<td>0001</td>-->
+                                <!--<td>张三</td>-->
+                                <!--<td>2018-06-21 18:50</td>-->
+                                <!--<td>篮球</td>-->
+                                <!--<td>篮球场1号场</td>-->
+                                <!--<td>2018-06-23 10:30-11:30</td>-->
+                                <!--<td>100</td>-->
+                                <!--<td>未审核</td>-->
+                                <!--<td><a href="javascript:void(0)">生成赛事</a></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--&lt;!&ndash;<td><input type="checkbox"/></td>&ndash;&gt;-->
+                                <!--<td>0002</td>-->
+                                <!--<td>张三</td>-->
+                                <!--<td>2018-06-21 18:50</td>-->
+                                <!--<td>篮球</td>-->
+                                <!--<td>篮球场1号场</td>-->
+                                <!--<td>2018-06-23 10:30-11:30</td>-->
+                                <!--<td>100</td>-->
+                                <!--<td>未审核</td>-->
+                                <!--<td><a href="javascript:void(0)">生成赛事</a></td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--&lt;!&ndash;<td><input type="checkbox"/></td>&ndash;&gt;-->
+                                <!--<td>0003</td>-->
+                                <!--<td>张三</td>-->
+                                <!--<td>2018-06-21 18:50</td>-->
+                                <!--<td>篮球</td>-->
+                                <!--<td>篮球场1号场</td>-->
+                                <!--<td>2018-06-23 10:30-11:30</td>-->
+                                <!--<td>100</td>-->
+                                <!--<td>未审核</td>-->
+                                <!--<td><a href="javascript:void(0)">生成赛事</a></td>-->
+                            <!--</tr>-->
+                        <!--</table>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</li>-->
+            <!--<li id="d" class="tab-pane fade">-->
+                <!--<form>-->
+                    <!--<div class="table-responsive pay_list">-->
+                        <!--<span style="font-size: 18px;font-weight: bolder !important;margin-bottom: 5px">删除赛事</span>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</li>-->
+            <!--<li id="e" class="tab-pane fade">-->
+                <!--<form>-->
+                    <!--<div class="table-responsive pay_list">-->
+                        <!--<span style="font-size: 18px;font-weight: bolder !important;margin-bottom: 5px">修改啥事</span>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</li>-->
+            <!--<li id="f" class="tab-pane fade">-->
+                <!--<form>-->
+                    <!--<div class="table-responsive pay_list">-->
+                        <!--<span style="font-size: 18px;font-weight: bolder !important;margin-bottom: 5px">未批准</span>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</li>-->
+            <!--<li id="g" class="tab-pane fade">-->
+                <!--<form>-->
+                    <!--<div class="table-responsive pay_list">-->
+                        <!--<span style="font-size: 18px;font-weight: bolder !important;margin-bottom: 5px">已批准</span>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</li>-->
+        <!--</ul>-->
+    </div>
+</div>
+</body>
+<script src="jquery/jquery-1.10.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script>
+    //    导航条特效
+    $("#myList ul li").on('mouseover',function () {
+        $(this).addClass('animate');
+    });
+    $("#myList ul li").on('mouseout',function () {
+        $(this).removeClass('animate');
+    });
+//    $("#myList ul li").on('click',function () {
+//        $(this).on('mouseout',function () {
+//            $(this).addClass('animate');
+//        });
+//        $(this).addClass('animate');
+//    })
+
+
+
+    //    var time = new Date();
+    //    alert(time.toLocaleFormat("%Y-%m-%d %H:%M:%S"));
+    function changeTime() {
+        Date.prototype.Format = function (fmt) { //author: meizz
+            var o = {
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "H+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds(), //秒
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+        var time = new Date().Format("yyyy-MM-dd HH:mm:ss");
+//alert(time)
+        $("#time").text(time);
+    }
+    $(function () {
+        changeTime();
+    })
+    setInterval(changeTime,1000)
+
+
+    //    赛事后台管理
+    $('#setting>li>div').on('click',function () {
+        $(this).siblings().slideToggle();
+    })
+
+    $(".fadechange li.default").css('background-color','#337ab7').css('color','white');
+    $(".fadechange li.default").children('a').css('color','white');
+    $(".fadechange li").on('click',function () {
+        $(".fadechange li").css('background-color','white').css('color','inherit');
+        $(".fadechange li").children('a').css('color','gray');
+        $(".fadechange li").children('a').children('span').css('color','gray');
+        $(this).css('background-color','#337ab7').css('color','white');
+        $(this).children('a').css('color','white');
+        $(this).children('a').children('span').css('color','white');
+
+        if($(this).text() == '未审核' || $(this).text() == '已审核'){
+            $(".pay_list>span").text('赛事申请审核--'+$(this).text());
+        }else if($(this).text() == '未批准' || $(this).text() == '已批准'){
+        $(".pay_list>span").text('退款处理--'+$(this).text());
+        }else{
+            $(".pay_list>span").text('赛事生成--'+$(this).text());
+        }
+    })
+
+//    data-toggle="modal" data-target="#PaySure"
+//    审核操作
+
+
+//    赛事审核查询
+    function AssessGame(revise_Status){
+        var assess_list=$("#pay_list_table");
+        $.ajax({
+            type:"post",
+            url:"assessGame.action",//需要用来处理ajax请求的action,excuteAjax为处理的方法名，JsonAction为action名
+            async:false,
+            data:{//设置数据源
+                reviseStatus:revise_Status
+            },
+            dataType:"text",//设置需要返回的数据类型
+            success:function(data){
+                var datalist = eval("("+data+")");//将数据转换成json类型，可以把data用alert()输出出来看看到底是什么样的结构
+                // //得到的d是一个形如{"key":"value","key1":"value1"}的数据类型，然后取值出来
+                // // $("#s_name").text(""+d.name+"");
+              //  alert(datalist.objs[1].gameId);
+                var obj = datalist.objs;
+                if(datalist.msg == "当前没有未审核的赛事预约信息！"){
+                    alert(obj[0].msg);
+                }else {
+                    //alert(obj);
+                    var content = null;
+                    for (var i = 0; i < obj.length; i++) {
+                        content += "<tr><td>" + obj[i].gameId + "</td><td>" + obj[i].applicant + "</td><td></td><td>" + obj[i].gameItem + "</td><td>" + obj[i].gamePlace + "</td><td>" + obj[i].gameDay + "&nbsp;&nbsp;" + obj[i].gameTime + "</td><td>100</td><td>" + obj[i].reviseStatus + "</td><td><a data-toggle='modal' data-target='#PaySure' onclick='getGameinfo($(this))'>审核</a></td></tr>";
+                    }
+                    assess_list.append(content);
+                }
+            },
+            error:function(){
+                alert("系统异常，请稍后重试！");
+            }//这里不要加","
+        });
+    }
+
+    var revise_Status = $("#isAssess li:first-child a").text();
+     AssessGame(revise_Status);
+     $("#isAssess li a").on('click',function () {
+         $("#pay_list_table tr:not(:first-child)").html("");
+        var reviseStatus =$(this).text();
+         AssessGame(reviseStatus);
+    });
+
+//     审核操作
+    function getGameinfo(This) {
+        alert(This.parent().parent().children().eq(0).text());
+        gameid = This.parent().parent().children().eq(0).text();
+        applicant= This.parent().parent().children().eq(0).text();
+            applyUnit= This.parent().parent().children().eq(0).text();
+            opponent= This.parent().parent().children().eq(0).text();
+            gameDay= This.parent().parent().children().eq(0).text();
+            gameTime= This.parent().parent().children().eq(0).text();
+            gameItem= This.parent().parent().children().eq(0).text();
+            gamePlace= This.parent().parent().children().eq(0).text();
+            note= This.parent().parent().children().eq(0).text();
+            phone= This.parent().parent().children().eq(0).text();
+    }
+
+
+    function assessTrue() {
+        $.ajax({
+            type:"post",
+            url:"allGame.action",//需要用来处理ajax请求的action,excuteAjax为处理的方法名，JsonAction为action名
+            async:false,
+            data:{gameId:parseInt(gameid)
+            },
+            dataType:"text",//设置需要返回的数据类型
+            success:function(data){
+                var datalist = eval("("+data+")");//将数据转换成json类型，可以把data用alert()输出出来看看到底是什么样的结构
+                // //得到的d是一个形如{"key":"value","key1":"value1"}的数据类型，然后取值出来
+                // // $("#s_name").text(""+d.name+"");
+                //  alert(datalist.objs[1].gameId);
+                var obj = datalist.objs;
+                var applicant= obj[0].applicant;
+                var applyUnit= obj[0].applyUnit;
+                var opponent= obj[0].opponent;
+                var gameDay= obj[0].gameDay;
+                var gameTime= obj[0].gameTime;
+                var gameItem= obj[0].gameItem;
+                var gamePlace= obj[0].gamePlace;
+                var note= obj[0].note;
+                var phone= obj[0].phone;
+                var makeStatus= obj[0].makeStatus;
+
+
+
+                alert($("#assess_true").text());
+                var assess_true="已审核";
+                $.ajax({
+                    type:"post",
+                    url:"assessTrue.action",//需要用来处理ajax请求的action,excuteAjax为处理的方法名，JsonAction为action名
+                    async:false,
+                    data:{//设置数据源
+                        gameId:parseInt(gameid),
+                        applicant:applicant,
+                        applyUnit: applyUnit,
+                        opponent: opponent,
+                        gameDay: gameDay,
+                        gameTime:gameTime,
+                        gameItem: gameItem,
+                        gamePlace: gamePlace,
+                        note:note,
+                        phone: phone,
+                        makeStatus: makeStatus,
+                        reviseStatus:assess_true
+                    },
+                    dataType:"text",//设置需要返回的数据类型
+                    success:function(data){
+                        var datalist = eval("("+data+")");//将数据转换成json类型，可以把data用alert()输出出来看看到底是什么样的结构
+                        // //得到的d是一个形如{"key":"value","key1":"value1"}的数据类型，然后取值出来
+                        // // $("#s_name").text(""+d.name+"");
+                        //  alert(datalist.objs[1].gameId);
+                        var obj = datalist.objs;
+                        if(datalist.msg == "当前没有未审核的赛事预约信息！"){
+                            alert(obj[0].msg);
+                        }else {
+                            //alert(obj);
+                            var content = null;
+                            for (var i = 0; i < obj.length; i++) {
+                                content += "<tr><td>" + obj[i].gameId + "</td><td>" + obj[i].applicant + "</td><td></td><td>" + obj[i].gameItem + "</td><td>" + obj[i].gamePlace + "</td><td>" + obj[i].gameDay + "&nbsp;&nbsp;" + obj[i].gameTime + "</td><td>100</td><td>" + obj[i].reviseStatus + "</td><td><a data-toggle='modal' data-target='#PaySure'>审核</a></td></tr>";
+                            }
+                            assess_list.append(content);
+                        }
+                    },
+                    error:function(){
+                        alert("系统异常，请稍后重试！");
+                    }//这里不要加","
+                });
+
+            },
+            error:function(){
+                alert("系统异常，请稍后重试！");
+            }//这里不要加","
+        });
+    }
+
+
+
+
+
+//    赛事生成-新建赛事
+
+
+
+    // $("#pay_list_table tr td:last-child a").on('click',function () {
+    //     $(this).attr({'data-toggle':'modal','data-target':'#PaySure'})
+    // })
+
+
+
+
+</script>
+</html>
